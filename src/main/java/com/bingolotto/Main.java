@@ -20,8 +20,8 @@ public class Main {
 
         List<Ticket> tickets = new ArrayList<>();
         System.out.println("Generating Tickets...");
-        IntStream.range(0, 10000).forEach(k -> tickets.add(TICKET_GENERATOR.generateTicket()));
-        int nrOfSimulations = 10000;
+        IntStream.range(0, 100000).forEach(k -> tickets.add(TICKET_GENERATOR.generateTicket()));
+        int nrOfSimulations = 1000;
         int nrOfWinningTickets = 0;
         System.out.println("Running Simulation...");
         for (int simulation = 0; simulation < nrOfSimulations; ++simulation) {
