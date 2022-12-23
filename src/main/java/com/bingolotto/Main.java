@@ -21,7 +21,7 @@ public class Main {
         List<Ticket> tickets = new ArrayList<>();
         System.out.println("Generating Tickets...");
         IntStream.range(0, 10000).forEach(k -> tickets.add(TICKET_GENERATOR.generateTicket()));
-        int nrOfSimulations = 1000;
+        int nrOfSimulations = 10000;
         int nrOfWinningTickets = 0;
         System.out.println("Running Simulation...");
         for (int simulation = 0; simulation < nrOfSimulations; ++simulation) {
@@ -32,7 +32,8 @@ public class Main {
                 }
             }
         }
-        System.out.println(String.format("Number of generated tickets: %s. Winning percentage: %s", tickets.size(), (1.0 / nrOfSimulations) * 100 * (nrOfWinningTickets / tickets.size())));
+        System.out.println(String.format("Number of generated tickets: %s. Winning percentage: %s",
+                tickets.size(), (1.0 / nrOfSimulations) * 100 * (nrOfWinningTickets / (double) tickets.size())));
     }
 
     private static boolean isWinningTicket(Draft draft, Ticket ticket) {

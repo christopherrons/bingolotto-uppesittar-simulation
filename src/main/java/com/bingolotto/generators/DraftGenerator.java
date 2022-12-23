@@ -11,6 +11,7 @@ import static com.bingolotto.util.BingoUtils.getColumnIndex;
 
 public class DraftGenerator {
 
+    private static final int[] roundIds = {1, 2, 3, 4, 5};
     private static final Set<Integer> columnIds = Set.of(1, 2, 3, 4, 5);
     private static final Random RANDOM = new Random();
     private final AtomicInteger nrOfDraftsGenerated = new AtomicInteger(0);

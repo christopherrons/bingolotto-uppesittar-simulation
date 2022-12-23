@@ -13,11 +13,11 @@ import java.util.stream.IntStream;
 
 public class TicketGenerator {
     private static final int[] roundIds = {1, 2, 3, 4, 5};
-    private final PermutationIterator<Integer> roundOneGenerator = new PermutationIterator<>(IntStream.range(1, 16).boxed().toList());
-    private final PermutationIterator<Integer> roundTwoGenerator = new PermutationIterator<>(IntStream.range(16, 31).boxed().toList());
-    private final PermutationIterator<Integer> roundThreeGenerator = new PermutationIterator<>(IntStream.range(31, 46).boxed().toList());
-    private final PermutationIterator<Integer> roundFourGenerator = new PermutationIterator<>(IntStream.range(46, 61).boxed().toList());
-    private final PermutationIterator<Integer> roundFiveGenerator = new PermutationIterator<>(IntStream.range(61, 76).boxed().toList());
+    private final PermutationIterator<Integer> columnOneGenerator = new PermutationIterator<>(IntStream.range(1, 16).boxed().toList());
+    private final PermutationIterator<Integer> columnTwoGenerator = new PermutationIterator<>(IntStream.range(16, 31).boxed().toList());
+    private final PermutationIterator<Integer> columnThreeGenerator = new PermutationIterator<>(IntStream.range(31, 46).boxed().toList());
+    private final PermutationIterator<Integer> columnFourGenerator = new PermutationIterator<>(IntStream.range(46, 61).boxed().toList());
+    private final PermutationIterator<Integer> columnFiveGenerator = new PermutationIterator<>(IntStream.range(61, 76).boxed().toList());
     private final AtomicInteger nrOfTicketsGenerated = new AtomicInteger(0);
     private final Set<Ticket> generatedTickets = new HashSet<>();
 
@@ -25,11 +25,11 @@ public class TicketGenerator {
         List<TicketRound> ticketRounds = new ArrayList<>();
         for (int roundId : roundIds) {
             int[][] numbers = new int[15][5];
-            addEntry(1, roundOneGenerator.next(), numbers);
-            addEntry(2, roundTwoGenerator.next(), numbers);
-            addEntry(3, roundThreeGenerator.next(), numbers);
-            addEntry(4, roundFourGenerator.next(), numbers);
-            addEntry(5, roundFiveGenerator.next(), numbers);
+            addEntry(1, columnOneGenerator.next(), numbers);
+            addEntry(2, columnTwoGenerator.next(), numbers);
+            addEntry(3, columnThreeGenerator.next(), numbers);
+            addEntry(4, columnFourGenerator.next(), numbers);
+            addEntry(5, columnFiveGenerator.next(), numbers);
             ticketRounds.add(new TicketRound(roundId, numbers));
         }
 
